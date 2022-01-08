@@ -9,6 +9,7 @@
 import { UserProvider } from './providers/UserProvider';
 import Router from './router/Router'
 import { RecoilRoot } from 'recoil'
+import axios from 'axios';
 // import { BrowserRouter, Link } from 'react-router-dom';
 // import { PrimaryButton } from './components/atoms/button/PrimaryButton';
 // import { SecondaryButton } from './components/atoms/button/SecondaryButton';
@@ -18,6 +19,24 @@ import { RecoilRoot } from 'recoil'
 // import { HeaderOnly } from './components/templates/HeaderOnly';
 // import { DefaultLayout } from './components/templates/DefaultLayout';
 
+const onClickUsers = () => {
+  axios.get('https://jsonplaceholder.typicode.com/users')
+  .then((res)=>{
+    console.log(res.data);
+  })
+  .catch((err)=> {
+    console.log(err);
+  })
+}
+const onClickUser1 = () => {
+  axios.get('https://jsonplaceholder.typicode.com/users?id=1')
+  .then((res)=>{
+    console.log(res.data);
+  })
+  .catch((err)=> {
+    console.log(err);
+  })
+}
 
 export default function App() {
   // const [text, setText] = useState('')
@@ -32,11 +51,13 @@ export default function App() {
 
   return (
     <>
-    <RecoilRoot>
-      <UserProvider>
-        <Router />
-      </UserProvider>
-    </RecoilRoot>
+      <button onClick={onClickUsers}>Users</button>
+      <button onClick={onClickUser1}>id=1のuser</button>
+      <RecoilRoot>
+        <UserProvider>
+          <Router />
+        </UserProvider>
+      </RecoilRoot>
       {/* <BrowserRouter>
         <DefaultLayout>
           <PrimaryButton>テスト</PrimaryButton>
