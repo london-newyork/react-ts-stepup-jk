@@ -10,6 +10,6 @@ export const SecondaryButton = (props) => {
 
 const SButton = styled(BaseButton)`
     background-color: #11999e;
-    max-width: 140px;
+    max-width: 160px;
     max-height: 40px;
 `

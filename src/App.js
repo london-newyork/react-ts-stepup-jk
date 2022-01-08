@@ -8,6 +8,7 @@
 // import { useState, useCallback, useMemo } from "react"
 import { UserProvider } from './providers/UserProvider';
 import Router from './router/Router'
+import { RecoilRoot } from 'recoil'
 // import { BrowserRouter, Link } from 'react-router-dom';
 // import { PrimaryButton } from './components/atoms/button/PrimaryButton';
 // import { SecondaryButton } from './components/atoms/button/SecondaryButton';
@@ -31,9 +32,11 @@ export default function App() {
 
   return (
     <>
+    <RecoilRoot>
       <UserProvider>
         <Router />
       </UserProvider>
+    </RecoilRoot>
       {/* <BrowserRouter>
         <DefaultLayout>
           <PrimaryButton>テスト</PrimaryButton>
